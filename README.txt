@@ -1,0 +1,1 @@
+Необхідно встановити: flask, flask-wtf, flask-login , flask-sqlalchemy

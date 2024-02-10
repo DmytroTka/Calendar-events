@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Calendar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css')}}">
+</head>
+<body>
+    <div class="container">
+        <h2>Event Calendar</h2>
+        <form method="post" action="/">
+            {{ form.hidden_tag() }}
+            <label for="date">Date</label>
+            {{ form.date(size=10) }}
+            {{ form.submit() }}
+        </form>
+        <div class="events">
+            {% for date, event_list in events.items() %}
+                <h2>{{ date }}</h2>
+            <ul>
+                {% for event in event_list %}
+                    <li>
+                        <p>{{ event['activity'] }}</p>
+                        <img src="{{ event['cat_image'] }}" alt="Cat Image">
+                    </li>
+                {% endfor %}
+            </ul>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
